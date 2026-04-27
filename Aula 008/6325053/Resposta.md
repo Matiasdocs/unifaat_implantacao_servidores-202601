@@ -35,3 +35,32 @@ a) Comando:
 docker service scale web-escalavel=5
 
 b) Essa capacidade é chamada de auto-healing.
+
+
+Tarefa Prática
+
+Passo 1: Inicialização do Cluster
+
+docker swarm leave --force
+docker swarm init
+
+Passo 2: Deploy de um Serviço
+
+docker service create --name app-stack-tf9 --replicas 4 -p 8001:80 nginx:alpine
+
+Passo 3: Evidência 1
+
+docker service ps app-stack-tf9
+
+Passo 3: Evidência 2
+
+curl 127.0.0.1:8001
+
+Passo 4: Escalabilidade
+
+docker service scale app-stack-tf9=1
+
+Passo 5: Limpeza Final
+
+docker service rm app-stack-tf9
+docker swarm leave --force
