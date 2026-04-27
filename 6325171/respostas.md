@@ -14,6 +14,10 @@ B) O driver de rede padrão é o overlay, que permite a comunicação entre serv
 A) docker service create --name web-escalavel --replicas 3 nginx:alpine
 B) docker service ps web-escalavel
 
+5.
+A) docker service scale web-escalavel=5
+B) Essa capacidade é chamada de alta disponibilidade, pois o Swarm garante que os serviços continuem rodando mesmo em caso de falhas de nós.
+
 
 
 
